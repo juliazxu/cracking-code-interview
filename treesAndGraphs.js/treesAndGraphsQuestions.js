@@ -1,12 +1,12 @@
 // 41 Implement a function to check if a tree is balanced For the purposes of this question, a balanced tree is defined to be a tree such that no two leaf nodes differ in distance from the root by more than one 
 
-// 42 Given a directed graph, design an algorithm to  nd out whether there is a route between two nodes
+// 42 Given a directed graph, design an algorithm to find out whether there is a route between two nodes
 
 // 43 Given a sorted (increasing order) array, write an algorithm to create a binary tree with minimal height
 
 // 44 Given a binary search tree, design an algorithm which creates a linked list of all the nodes at each depth (i e , if you have a tree with depth D, you’ll have D linked lists)
 
-// 45 Write an algorithm to  nd the ‘next’ node (i e , in-order successor) of a given node in a binary search tree where each node has a link to its parent
+// 45 Write an algorithm to find the ‘next’ node (i e , in-order successor) of a given node in a binary search tree where each node has a link to its parent
 
 // 46 Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree Avoid storing additional nodes in a data structure NOTE: This is not necessarily a binary search tree 
 
