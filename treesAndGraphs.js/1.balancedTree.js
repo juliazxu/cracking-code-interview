@@ -33,8 +33,8 @@ const isTreeBalanced = tree => {
     if (!tree.root) {
         console.log('Tree is empty.');
         return;
-    } else if (tree.root.children.length === 1) {
-        console.log('Tree only has one leaf node.');
+    } else if (tree.root.children.length === 0) {
+        console.log('Tree only has one leaf node, the root.');
         return;
     } else {
         let leafNodeLevels = findLeafNodeLevels(tree).sort();
