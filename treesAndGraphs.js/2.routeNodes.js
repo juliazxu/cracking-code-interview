@@ -18,13 +18,13 @@ class Node {
     }
 }
 
-const checkRoute = (thisNode, otherNode) => {
+const checkRoute = (startNode, endNode) => {
     const nodesChecked = [];
-    const nodesToCheck = [thisNode];
+    const nodesToCheck = [startNode];
     const currentNode = nodesToCheck[0];
     while (nodesToCheck.length > 0) {
         if (currentNode.pointers.length !== 0) {
-            if (currentNode.pointers.includes(otherNode)) {
+            if (currentNode.pointers.includes(endNode)) {
                 return true;
             } else {
                 // only add the pointer nodes to nodesToCheck if it hasn't already been checked
@@ -45,9 +45,12 @@ const isRoute = (node1, node2) => {
     if (checkRoute(node1, node2)) {
         return true;
     } else {
+        // check the direction direction
         result = checkRoute(node2, node1);
     }
     return result;
+    // if you don't care about time, then:
+    // return checkRoute(node1, node2) || checkRoute(node2, node1)
 }
 
 const node1 = new Node(1);
