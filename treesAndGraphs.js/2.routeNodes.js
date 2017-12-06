@@ -18,6 +18,8 @@ class Node {
     }
 }
 
+// iteratively
+
 const checkRoute = (startNode, endNode) => {
     const nodesChecked = [];
     const nodesToCheck = [startNode];
@@ -40,14 +42,36 @@ const checkRoute = (startNode, endNode) => {
     return false;
 }
 
+// recursively
+const nodesChecked = [];
+
+const checkRoute = (startNode, endNode) => {
+    let result = false;
+    if (startNode.pointers && startNode.pointers.includes(endNode)) {
+        result = true;
+        console.log('this worked omg whyyyy');
+        return result;
+    } else {
+        nodesChecked.push(startNode);
+        if (startNode.pointers) {
+            for (let node of startNode.pointers) {
+                checkRoute(node, endNode);
+            }
+        }
+    }
+    return result;
+}
+
 const isRoute = (node1, node2) => {
     let result = null;
     if (checkRoute(node1, node2)) {
-        return true;
+        console.log('this worked');
+        result = true;
     } else {
         // check the direction direction
         result = checkRoute(node2, node1);
     }
+    console.log(checkRoute(node1, node2), checkRoute(node2, node1));
     return result;
     // if you don't care about time, then:
     // return checkRoute(node1, node2) || checkRoute(node2, node1)
@@ -68,6 +92,6 @@ node3.addPointers([node4, node6]);
 node4.addPointers([]);
 node5.addPointers([node6]);
 node6.addPointers([node7]);
-node7.addPointers([]);
+node7.addPointers([node8]);
 node8.addPointers([]);
 isRoute(node1, node8);

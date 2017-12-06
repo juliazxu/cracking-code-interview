@@ -44,4 +44,38 @@ const isTreeBalanced = tree => {
     }
 }
 
-isTreeBalanced(tree1);
+isTreeBalanced(balancedTree);
+
+// Approach 2 use recursion
+
+const leafNodeLevels = [];
+
+const findLeafNodeLevels = (nodes, level) => {
+    for (let node of nodes) {
+        if (node.children.length === 0) {
+            leafNodeLevels.push(level);
+        } else {
+            findLeafNodeLevels(node.children, level + 1);
+        }
+    }
+    return leafNodeLevels;
+}
+
+const isTreeBalanced = tree => {
+    console.log(tree.root);
+    if (!tree.root) {
+        console.log('Tree is empty.');
+        return;
+    } else if (tree.root.children.length === 0) {
+        console.log('Tree only has one leaf node, the root.');
+        return;
+    } else {
+        let leafNodeLevels = findLeafNodeLevels([tree.root], 0).sort();
+        console.log(leafNodeLevels);
+        let result = null;
+        leafNodeLevels[leafNodeLevels.length - 1] - leafNodeLevels[0] > 1 ? result = false : result = true ;
+        return result;
+    }
+}
+
+isTreeBalanced(balancedTree);
