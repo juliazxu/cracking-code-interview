@@ -44,18 +44,17 @@ const checkRoute = (startNode, endNode) => {
 
 // recursively
 const nodesChecked = [];
+let result = false;
 
 const checkRoute = (startNode, endNode) => {
-    let result = false;
     if (startNode.pointers && startNode.pointers.includes(endNode)) {
         result = true;
-        console.log('this worked omg whyyyy');
         return result;
     } else {
         nodesChecked.push(startNode);
         if (startNode.pointers) {
             for (let node of startNode.pointers) {
-                checkRoute(node, endNode);
+                result = checkRoute(node, endNode);
             }
         }
     }
@@ -65,7 +64,6 @@ const checkRoute = (startNode, endNode) => {
 const isRoute = (node1, node2) => {
     let result = null;
     if (checkRoute(node1, node2)) {
-        console.log('this worked');
         result = true;
     } else {
         // check the direction direction
@@ -92,6 +90,6 @@ node3.addPointers([node4, node6]);
 node4.addPointers([]);
 node5.addPointers([node6]);
 node6.addPointers([node7]);
-node7.addPointers([node8]);
+node7.addPointers([]);
 node8.addPointers([]);
 isRoute(node1, node8);

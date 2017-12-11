@@ -15,7 +15,7 @@ class Node {
     }
 }
 
-class BinaryTree {
+class Tree {
     constructor(node) {
         this.root = node;
     }
@@ -73,7 +73,7 @@ class Node {
 
 class BinaryTree {
     constructor(node) {
-        this.root = new Node(node);
+        this.root = node;
     }
 
     changeRoot(node) {
