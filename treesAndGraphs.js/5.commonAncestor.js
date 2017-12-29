@@ -2,3 +2,5 @@
 // Avoid storing additional nodes in a data structure 
 // NOTE: This is not necessarily a binary search tree 
 
+// dfs every node, starting from the root node, until you reach a node that isn't a common ancestor of both
+// 
